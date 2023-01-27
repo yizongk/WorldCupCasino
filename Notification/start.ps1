@@ -1,4 +1,7 @@
 $path = "C:\Users\yizongk\Desktop\CandCMaterials\WorldCupCasino\Notification"
+
+
+## DON'T CHANGE ANYTHING BELOW THIS LINE
 $port = 8082
 
 if ( -not ( Test-Path -Path $path ) ) {
