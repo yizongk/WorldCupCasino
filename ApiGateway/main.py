@@ -1,22 +1,25 @@
+#:8080
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
+import requests
 import asyncio
 import uuid
+import json
 
 app = FastAPI()
 
-bets_cache = {
-}
+internal_market_url= f"http://localhost:8081/internal_market/bet"
+
 
 """
 Takes in
 {
-    "matchDate": "2022-12-18"
-    ,"team": "Argentina"
-    ,"result": "win"
-    ,"currency": "USD"
-    ,"amount": "100"
-    ,"email": "john.doe@gmail.com"
+    "matchDate" : "2022-12-18"
+    ,"team"     : "Argentina"
+    ,"result"   : "win"
+    ,"currency" : "USD"
+    ,"amount"   : "100"
+    ,"email"    : "john.doe@gmail.com"
 }
 """
 # @app.post("/market/bet")
@@ -26,28 +29,44 @@ Takes in
 @app.post("/market/bet")
 def placeBet(request: Request):
     body = asyncio.run(request.json())
-    print("Calling internal market api with:\n{}".format(body))
 
     new_bet_id = uuid.uuid4()
-    print(type(new_bet_id))
-    bets_cache[f"{new_bet_id}"] = body
+    body["betId"] = f"{new_bet_id}"
 
-    return {
-        "betId": new_bet_id
-    }
+    post_response = requests.post(internal_market_url, json=body)
+
+    if post_response.status_code == 200:
+        return {
+            "betId": post_response.json()["betId"]
+        }
+    else:
+        return JSONResponse(
+            status_code=post_response.status_code
+            ,content=post_response.json()
+        )
 
 
 @app.get("/market/bet")
 def getBet():
-    print('all bet query')
-    return bets_cache
+    get_response = requests.get(internal_market_url)
+
+    if get_response.status_code == 200:
+        return get_response.json()
+    else:
+        return JSONResponse(
+            status_code=get_response.status_code
+            ,content=get_response.json()
+        )
 
 
 @app.get("/market/bet/{betId}")
 def getBet(betId):
-    if betId in bets_cache:
-        print('foundc')
-        return bets_cache[betId]
+    get_response = requests.get(f"{internal_market_url}/{betId}")
+
+    if get_response.status_code == 200:
+        return get_response.json()
     else:
-        print('not found')
-        return JSONResponse(status_code=404, content={"details": f"No bet was found with this betId: '{betId}'"})
+        return JSONResponse(
+            status_code=get_response.status_code
+            ,content=get_response.json()
+        )
