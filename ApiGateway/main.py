@@ -1,7 +1,12 @@
 from fastapi import FastAPI, Request
+from fastapi.responses import JSONResponse
 import asyncio
+import uuid
 
 app = FastAPI()
+
+bets_cache = {
+}
 
 """
 Takes in
@@ -22,24 +27,27 @@ Takes in
 def placeBet(request: Request):
     body = asyncio.run(request.json())
     print("Calling internal market api with:\n{}".format(body))
-    return body
+
+    new_bet_id = uuid.uuid4()
+    print(type(new_bet_id))
+    bets_cache[f"{new_bet_id}"] = body
+
+    return {
+        "betId": new_bet_id
+    }
+
 
 @app.get("/market/bet")
-async def getBet(betId):
-    return {
-        "message": "Hello World!"
-        ,"betId": betId
-        ,"": ""
-        ,"": ""
-        ,"": ""
-    }
+def getBet():
+    print('all bet query')
+    return bets_cache
+
 
 @app.get("/market/bet/{betId}")
-async def getBet(betId):
-    return {
-        "message": "Hello World!"
-        ,"betId": betId
-        ,"": ""
-        ,"": ""
-        ,"": ""
-    }
+def getBet(betId):
+    if betId in bets_cache:
+        print('foundc')
+        return bets_cache[betId]
+    else:
+        print('not found')
+        return JSONResponse(status_code=404, content={"details": f"No bet was found with this betId: '{betId}'"})
