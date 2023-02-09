@@ -1,0 +1,186 @@
+{
+	"info": {
+		"_postman_id": "89b3c10c-daf2-469d-a18a-1bcfa04c38a7",
+		"name": "WorldCupCasino",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4321252"
+	},
+	"item": [
+		{
+			"name": "GetSpecificBets",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8080/market/bet/5318a988-865a-4216-8a99-3771321a8293",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"market",
+						"bet",
+						"5318a988-865a-4216-8a99-3771321a8293"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllBets",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8080/market/bet",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"market",
+						"bet"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostBet",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"matchDate\": \"2022-12-18\"\r\n    ,\"team\": \"Argentina\"\r\n    ,\"result\": \"win\"\r\n    ,\"currency\": \"USD\"\r\n    ,\"amount\": \"100\"\r\n    ,\"email\": \"john.doe@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/market/bet",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"market",
+						"bet"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SetAllBetWin",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"matchDate\": \"2022-12-18\"\r\n    ,\"team\": \"Argentina\"\r\n    ,\"result\": \"win\"\r\n    ,\"currency\": \"USD\"\r\n    ,\"amount\": \"100\"\r\n    ,\"email\": \"john.doe@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8081/internal_market/bet/hack_set_all_win/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8081",
+					"path": [
+						"internal_market",
+						"bet",
+						"hack_set_all_win",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "NotifyWinners",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"matchDate\": \"2022-12-18\"\r\n    ,\"team\": \"Argentina\"\r\n    ,\"result\": \"win\"\r\n    ,\"currency\": \"USD\"\r\n    ,\"amount\": \"100\"\r\n    ,\"email\": \"john.doe@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8081/internal_market/bet/notify/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8081",
+					"path": [
+						"internal_market",
+						"bet",
+						"notify",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CountHowManyClientNotified",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8083/client_notified/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8083",
+					"path": [
+						"client_notified",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
