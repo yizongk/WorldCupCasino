@@ -1,11 +1,12 @@
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
+import requests
 import asyncio
 import uuid
 
 app = FastAPI()
 
-internal_notification_url= f"http://localhost:8081/internal_notification/email"
+internal_notification_url= f"http://localhost:8082/internal_notification/email"
 
 
 bets_cache = {
@@ -61,13 +62,16 @@ def decideBets():
         post_param["wonAmount"] = int(bets_cache[bet]["amount"]) * 10
         post_param["email"]     = bets_cache[bet]["email"]
 
-        get_response = requests.post(internal_notification_url, json=post_param)
+        if (
+            bets_cache[bet]["status"] == "WON"
+        ):
+            post_response = requests.post(internal_notification_url, json=post_param)
 
-        if get_response.status_code == 200:
-            bets_cache[bet]["status"] = "DONE"
-            continue
-        else:
-            continue
+            if post_response.status_code == 200:
+                bets_cache[bet]["status"] = "DONE"
+                continue
+            else:
+                continue
 
     return JSONResponse(status_code=200, content="Notified winners")
 
