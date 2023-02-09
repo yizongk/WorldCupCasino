@@ -33,8 +33,6 @@ def placeBet(request: Request):
     body["status"] = "PENDING"
     bets_cache[body["betId"]] = body
 
-    # return JSONResponse(status_code=404, content={"details": f"testing"})
-
     return {
         "betId": body["betId"]
     }
@@ -42,7 +40,6 @@ def placeBet(request: Request):
 
 @app.get("/internal_market/bet")
 def getBet():
-    # return JSONResponse(status_code=404, content={"details": f"testing"})
     return bets_cache
 
 
@@ -53,12 +50,6 @@ def getBet(betId):
     else:
         return JSONResponse(status_code=404, content={"details": f"No bet was found with this betId: '{betId}'"})
 
-@app.get("/internal_market/bet/hack_set_all_win/")
-def decideBets():
-    for bet in bets_cache:
-        bets_cache[bet]["status"] = "WON"
-
-    return JSONResponse(status_code=200, content="hack completed ;)")
 
 @app.get("/internal_market/bet/notify/")
 def decideBets():
@@ -79,3 +70,11 @@ def decideBets():
             continue
 
     return JSONResponse(status_code=200, content="Notified winners")
+
+
+@app.get("/internal_market/bet/hack_set_all_win/")
+def decideBets():
+    for bet in bets_cache:
+        bets_cache[bet]["status"] = "WON"
+
+    return JSONResponse(status_code=200, content="hack completed ;)")
