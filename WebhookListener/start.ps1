@@ -1,8 +1,8 @@
-$path = "C:\Users\yizongk\Desktop\CandCMaterials\WorldCupCasino\WebhookListener"
+$path = "C:\Users\yizongk\Desktop\github\WorldCupCasino\WebhookListener"
 
 
 ## DON'T CHANGE ANYTHING BELOW THIS LINE
-$port = 8083
+$port = 8084
 
 if ( -not ( Test-Path -Path $path ) ) {
     throw "Path doesn't exist: '$path'"

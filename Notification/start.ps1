@@ -1,8 +1,8 @@
-$path = "C:\Users\yizongk\Desktop\CandCMaterials\WorldCupCasino\Notification"
+$path = "C:\Users\yizongk\Desktop\github\WorldCupCasino\Notification"
 
 
 ## DON'T CHANGE ANYTHING BELOW THIS LINE
-$port = 8082
+$port = 8083
 
 if ( -not ( Test-Path -Path $path ) ) {
     throw "Path doesn't exist: '$path'"

@@ -7,7 +7,7 @@ import json
 
 app = FastAPI()
 
-internal_market_url= f"http://localhost:8081/internal_market/bet"
+internal_market_url= f"http://localhost:8082/internal_market/bet"
 
 
 """

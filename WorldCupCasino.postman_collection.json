@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "89b3c10c-daf2-469d-a18a-1bcfa04c38a7",
+		"_postman_id": "d8bba89b-b872-4bf3-a5e8-ad73a6f65752",
 		"name": "WorldCupCasino",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "4321252"
@@ -12,7 +12,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:8080/market/bet/5318a988-865a-4216-8a99-3771321a8293",
+					"raw": "http://127.0.0.1:8081/market/bet/d187d066-12aa-42f0-ba40-467849a7e419",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -20,11 +20,11 @@
 						"0",
 						"1"
 					],
-					"port": "8080",
+					"port": "8081",
 					"path": [
 						"market",
 						"bet",
-						"5318a988-865a-4216-8a99-3771321a8293"
+						"d187d066-12aa-42f0-ba40-467849a7e419"
 					]
 				}
 			},
@@ -36,7 +36,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:8080/market/bet",
+					"raw": "http://127.0.0.1:8081/market/bet",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -44,7 +44,7 @@
 						"0",
 						"1"
 					],
-					"port": "8080",
+					"port": "8081",
 					"path": [
 						"market",
 						"bet"
@@ -68,7 +68,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:8080/market/bet",
+					"raw": "http://127.0.0.1:8081/market/bet",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -76,7 +76,7 @@
 						"0",
 						"1"
 					],
-					"port": "8080",
+					"port": "8081",
 					"path": [
 						"market",
 						"bet"
@@ -103,7 +103,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:8081/internal_market/bet/hack_set_all_win/",
+					"raw": "http://127.0.0.1:8082/internal_market/bet/hack_set_all_win/",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -111,7 +111,7 @@
 						"0",
 						"1"
 					],
-					"port": "8081",
+					"port": "8082",
 					"path": [
 						"internal_market",
 						"bet",
@@ -140,7 +140,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:8081/internal_market/bet/notify/",
+					"raw": "http://127.0.0.1:8082/internal_market/bet/notify/",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -148,7 +148,7 @@
 						"0",
 						"1"
 					],
-					"port": "8081",
+					"port": "8082",
 					"path": [
 						"internal_market",
 						"bet",
@@ -165,7 +165,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:8083/client_notified/",
+					"raw": "http://127.0.0.1:8084/client_notified/",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -173,7 +173,7 @@
 						"0",
 						"1"
 					],
-					"port": "8083",
+					"port": "8084",
 					"path": [
 						"client_notified",
 						""

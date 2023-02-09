@@ -6,7 +6,7 @@ import uuid
 
 app = FastAPI()
 
-internal_notification_url= f"http://localhost:8082/internal_notification/email"
+internal_notification_url= f"http://localhost:8083/internal_notification/email"
 
 
 bets_cache = {
