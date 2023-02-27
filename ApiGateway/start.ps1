@@ -1,4 +1,4 @@
-$path = "C:\Users\yizongk\Desktop\github\WorldCupCasino\ApiGateway"
+$path = "C:\Users\yizongk\Desktop\CandCMaterials\WorldCupCasino\ApiGateway"
 
 
 ## DON'T CHANGE ANYTHING BELOW THIS LINE

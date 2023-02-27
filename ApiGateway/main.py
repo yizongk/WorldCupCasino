@@ -21,10 +21,6 @@ Takes in
     ,"email"    : "john.doe@gmail.com"
 }
 """
-# @app.post("/market/bet")
-# async def placeBet(request: Request):
-#     print("Calling internal market api with:\n{}".format(await request.json()))
-#     return await request.json()
 @app.post("/market/bet")
 def placeBet(request: Request):
     body = asyncio.run(request.json())
