@@ -1,4 +1,4 @@
-$path = "C:\Users\yizongk\Desktop\CandCMaterials\WorldCupCasino\Notification"
+$path = "D:\Desktop\CandCMaterials\WorldCupCasino\Notification"
 
 
 ## DON'T CHANGE ANYTHING BELOW THIS LINE

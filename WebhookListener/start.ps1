@@ -1,4 +1,4 @@
-$path = "C:\Users\yizongk\Desktop\CandCMaterials\WorldCupCasino\WebhookListener"
+$path = "D:\Desktop\CandCMaterials\WorldCupCasino\WebhookListener"
 
 
 ## DON'T CHANGE ANYTHING BELOW THIS LINE
